@@ -7,20 +7,13 @@ public class WindowManager : MonoBehaviour
 
     public Window[] windows;
 
-    private Window _window;
-    public Window Window
-    {
-        get {return _window; }
-        set {_window = value; }
-    }
-
-
 
     public static WindowManager instance;
 
 	// Use this for initialization
 	void Awake () 
     {
+        
         if(instance == null)
         {
             instance = this;
@@ -31,7 +24,20 @@ public class WindowManager : MonoBehaviour
         }
 
 
+        Open(0);
+
 	}
+
+    public void Open(int index)
+    {
+        foreach(var win in windows)
+        {
+            win.gameObject.SetActive(false);
+        }
+
+        windows[index].gameObject.SetActive(true);
+
+    }
 	
 	
 

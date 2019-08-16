@@ -2,15 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Window : MonoBehaviour {
+public abstract class Window : MonoBehaviour 
+{
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+    public int windowID;
+    private int currentWindowIndex;
+
+    protected virtual void Awake()
+    {
+        
+        currentWindowIndex = windowID;
+        Debug.Log("Opening window Index: "+currentWindowIndex);
+    }
+
+    protected abstract void Open();
+
+
+    protected abstract void Close();
+
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }
